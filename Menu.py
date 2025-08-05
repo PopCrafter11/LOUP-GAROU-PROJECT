@@ -2,6 +2,28 @@ import os
 import random
 import json
 
+roles_possibles = [
+    #de 6 à 8 joueurs
+    [
+    "Villageois", "Loup-Garou", "Sorcière", 
+    "Voyante", "Chasseur", "Loup-Garou", 
+    "Villageois", "Villageois"
+    ],
+    #de 9 à 11 joueurs
+    [
+    "Villageois", "Loup-Garou", "Sorcière", "Villageois",
+    "Voyante", "Loup-Garou", "Chasseur", "Villageois", 
+    "Loup-Garou", "Villageois", "Cupidon"
+    ],
+    #de 12 à 15 joueurs
+    [
+    "Villageois", "Villageois", "Loup-Garou", "Sorcière", "Villageois",
+    "Voyante", "Loup-Garou", "Chasseur", "Villageois", 
+    "Loup-Garou", "Villageois", "Cupidon", "Voleur", "Petite Fille",
+    "Loup-Garou", "Villageois"
+    ]
+    ]
+
 def afficher_menu():
     print('Menu :')
     print("0 - Quitter")
@@ -22,9 +44,6 @@ def charger_dossier(fichier):
     return dossier
 
 def inscription(fichier_json, roles_possibles):
-    roles_possibles = ["Villageois", "Loup-Garou", "Sorcière", 
-                   "Voyante", "Chasseur", "Cupidon", 
-                   "Voleur", "Petite Fille", "Villageois", "Villageois"]
     nb_joueurs = int(input("Nombre de joueurs : "))
     try:
         with open(fichier_json, 'r') as f:
@@ -32,19 +51,54 @@ def inscription(fichier_json, roles_possibles):
     except (FileNotFoundError, json.JSONDecodeError):
         joueurs = []
     
-    for i in range(nb_joueurs):
-        nom = input(f"Nom du joueur {i+1} : ")
-        role = random.choice(roles_possibles)
-        roles_possibles.remove(role)
-        statut = "Vivant"
+    if 6 <= nb_joueurs <= 8:
+        for i in range(nb_joueurs):
+            nom = input(f"Nom du joueur {i+1} : ")
+            role = random.choice(roles_possibles[0])
+            roles_possibles[0].remove(role)
+            statut = "Vivant"
 
-        joueur = {
-            "nom": nom,
-            "role": role,
-            "statut": statut
-        }
-        joueurs.append(joueur)
-        print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
+            joueur = {
+                "nom": nom,
+                "role": role,
+                "statut": statut
+            }
+            joueurs.append(joueur)
+            print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
+    
+    elif 9 <= nb_joueurs <= 11:
+        for i in range(nb_joueurs):
+            nom = input(f"Nom du joueur {i+1} : ")
+            role = random.choice(roles_possibles[1])
+            roles_possibles[1].remove(role)
+            statut = "Vivant"
+
+            joueur = {
+                "nom": nom,
+                "role": role,
+                "statut": statut
+            }
+            joueurs.append(joueur)
+            print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
+    
+    elif 12 <= nb_joueurs <= 15:
+        for i in range(nb_joueurs):
+            nom = input(f"Nom du joueur {i+1} : ")
+            role = random.choice(roles_possibles[2])
+            roles_possibles[2].remove(role)
+            statut = "Vivant"
+
+            joueur = {
+                "nom": nom,
+                "role": role,
+                "statut": statut
+            }
+            joueurs.append(joueur)
+            print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
+    
+    else:
+        print("Il y a trop ou pas assez de joueur. Nombre de joueur" \
+        "minimum : 6 ; nombre de joueur maximum : 15")
 
     # Sauvegarde tous les joueurs à la fin, une seule fois
     with open(fichier_json, 'w') as f:
