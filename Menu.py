@@ -82,7 +82,10 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
 
 def roles(fichier: str):
     roles_pers = charger_dossier(fichier)
-    mot = input("Rôles à chercher : ")
+    roles_available = ", ".join(roles_pers.keys())
+
+    print(f"Les rôles possibles sont : {roles_available}")
+    mot = input("Rôles à consulter : ").capitalize() # Le capitalize permet de ne mettre en majuscule que la première lettre de la chaîne (cela permet d'ignorer la casse)
     if mot in roles_pers:
         print(f"{mot} : {roles_pers[mot]}")
     else:
@@ -90,7 +93,10 @@ def roles(fichier: str):
 
 def rec_reg(fichier: str):
     regles = charger_dossier(fichier)
-    mot = input("Mot à chercher : ")
+    parts = ", ".join(list(regles.keys()))
+
+    print(f"Les parties possibles sont : {parts}")
+    mot = input("Consulter les règles pour la partie : ") # Le capitalize permet de ne mettre en majuscule que la première lettre de la chaîne (cela permet d'ignorer la casse)
     if mot in regles:
         print(f"{mot} : {regles[mot]}")
     else:
