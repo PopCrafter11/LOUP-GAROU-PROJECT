@@ -2,10 +2,6 @@ import os
 import random
 import json
 
-roles_possibles = ["Villageois", "Loup-Garou", "Sorcière", 
-                   "Voyante", "Chasseur", "Cupidon", 
-                   "Voleur", "Petite Fille", "Villageois", "Villageois"]
-
 def afficher_menu():
     print('Menu :')
     print("0 - Quitter")
@@ -26,6 +22,9 @@ def charger_dossier(fichier):
     return dossier
 
 def inscription(fichier_json, roles_possibles):
+    roles_possibles = ["Villageois", "Loup-Garou", "Sorcière", 
+                   "Voyante", "Chasseur", "Cupidon", 
+                   "Voleur", "Petite Fille", "Villageois", "Villageois"]
     nb_joueurs = int(input("Nombre de joueurs : "))
     try:
         with open(fichier_json, 'r') as f:
@@ -36,6 +35,7 @@ def inscription(fichier_json, roles_possibles):
     for i in range(nb_joueurs):
         nom = input(f"Nom du joueur {i+1} : ")
         role = random.choice(roles_possibles)
+        roles_possibles.remove(role)
         statut = "Vivant"
 
         joueur = {
