@@ -1,0 +1,22 @@
+Règles du jeu 
+
+Début,Cupidon choisit deux amoureux
+Début,Les amoureux se reconnaissent
+Début,Le voleur peut échanger sa carte avec une carte non distribuée
+Début,Les joueurs élisent un capitaine
+
+Nuit,La voyante regarde la carte d’un joueur
+Nuit,Les loups-garous choisissent une victime
+Nuit,La petite fille peut espionner discrètement les loups-garous
+Nuit,La sorcière apprend la victime des loups et peut utiliser une potion
+
+Jour,Le narrateur annonce qui est mort pendant la nuit
+Jour,Si le chasseur meurt, il tire sur un joueur avant de mourir
+Jour,Les joueurs débattent et votent pour éliminer un suspect
+Jour,Le capitaine tranche en cas d’égalité avec sa voix double
+Jour,Le joueur éliminé révèle sa carte et quitte la partie
+Jour,Si le chasseur est éliminé, il tire sur un joueur
+
+Fin,Les amoureux gagnent seuls s’ils sont les derniers survivants
+Fin,Les loups-garous gagnent s’ils éliminent tous les autres
+Fin,Les villageois gagnent s’ils éliminent tous les loups-garous
