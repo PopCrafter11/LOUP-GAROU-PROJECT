@@ -5,117 +5,99 @@ import json
 roles_possibles = [
     #de 6 à 8 joueurs
     [
-    "Villageois", "Loup-Garou", "Sorcière", 
-    "Voyante", "Chasseur", "Loup-Garou", 
-    "Villageois", "Villageois"
+        "Villageois", "Loup-Garou", "Sorcière",
+        "Voyante", "Chasseur", "Loup-Garou",
+        "Villageois", "Villageois"
     ],
     #de 9 à 11 joueurs
     [
-    "Villageois", "Loup-Garou", "Sorcière", "Villageois",
-    "Voyante", "Loup-Garou", "Chasseur", "Villageois", 
-    "Loup-Garou", "Villageois", "Cupidon"
+        "Villageois", "Loup-Garou", "Sorcière", "Villageois",
+        "Voyante", "Loup-Garou", "Chasseur", "Villageois",
+        "Loup-Garou", "Villageois", "Cupidon"
     ],
     #de 12 à 15 joueurs
     [
-    "Villageois", "Villageois", "Loup-Garou", "Sorcière", "Villageois",
-    "Voyante", "Loup-Garou", "Chasseur", "Villageois", 
-    "Loup-Garou", "Villageois", "Cupidon", "Voleur", "Petite Fille",
-    "Loup-Garou", "Villageois"
+        "Villageois", "Villageois", "Loup-Garou", "Sorcière", "Villageois",
+        "Voyante", "Loup-Garou", "Chasseur", "Villageois",
+        "Loup-Garou", "Villageois", "Cupidon", "Voleur", "Petite Fille",
+        "Loup-Garou", "Villageois"
     ]
-    ]
+]
 
 def afficher_menu():
-    print('Menu :')
+    print("Menu :")
     print("0 - Quitter")
-    print("1 - inscrire joueur")
+    print("1 - Inscrire joueur")
     print("2 - Règles du jeu")
     print("3 - Rôles")
     choix = input("Votre choix ? ")
     return choix
 
-def charger_dossier(fichier):
-    dossier = {}
+def charger_dossier(fichier: str) -> dict[str, str]:
+    dossier: dict[str, str] = {}
     if os.path.exists(fichier):
-        with open(fichier, 'r') as f:
+        with open(fichier, "r") as f:
             for ligne in f:
-                if ',' in ligne:
-                    numero, reg = ligne.strip().split(',', 1)
+                if "," in ligne:
+                    numero, reg = ligne.strip().split(",", 1)
                     dossier[numero] = reg
     return dossier
 
-def inscription(fichier_json, roles_possibles):
-    nb_joueurs = int(input("Nombre de joueurs : "))
+def inscription(fichier_json: str, roles_possibles: list[list[str]]):
+    nb_joueurs = int(input("Nombre de joueurs (entre 6 et 15) : "))
     try:
         with open(fichier_json, 'r') as f:
             joueurs = json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         joueurs = []
-    
-    if 6 <= nb_joueurs <= 8:
-        for i in range(nb_joueurs):
-            nom = input(f"Nom du joueur {i+1} : ")
-            role = random.choice(roles_possibles[0])
-            roles_possibles[0].remove(role)
-            statut = "Vivant"
 
-            joueur = {
-                "nom": nom,
-                "role": role,
-                "statut": statut
-            }
-            joueurs.append(joueur)
-            print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
-    
-    elif 9 <= nb_joueurs <= 11:
-        for i in range(nb_joueurs):
-            nom = input(f"Nom du joueur {i+1} : ")
-            role = random.choice(roles_possibles[1])
-            roles_possibles[1].remove(role)
-            statut = "Vivant"
+    role_array = 0
 
-            joueur = {
-                "nom": nom,
-                "role": role,
-                "statut": statut
-            }
-            joueurs.append(joueur)
-            print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
-    
+    if 9 <= nb_joueurs <= 11:
+            role_array = 1
     elif 12 <= nb_joueurs <= 15:
-        for i in range(nb_joueurs):
-            nom = input(f"Nom du joueur {i+1} : ")
-            role = random.choice(roles_possibles[2])
-            roles_possibles[2].remove(role)
-            statut = "Vivant"
+            role_array = 2
+    elif not 6 <= nb_joueurs <= 8:
+        print("Il y a trop ou pas assez de joueur. Nombre de joueur " + \
+            "minimum : 6 ; nombre de joueur maximum : 15")
+        return # On évite l'écriture inutile du fichier en arrêtant la fonction
 
-            joueur = {
-                "nom": nom,
-                "role": role,
-                "statut": statut
-            }
-            joueurs.append(joueur)
-            print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
-    
-    else:
-        print("Il y a trop ou pas assez de joueur. Nombre de joueur" \
-        "minimum : 6 ; nombre de joueur maximum : 15")
+    for i in range(nb_joueurs):
+        nom = input(f"Nom du joueur {i+1} : ")
+        role = random.choice(roles_possibles[0])
+        roles_possibles[role_array].remove(role)
+        statut = "Vivant"
+
+        joueur = {
+            "nom": nom,
+            "role": role,
+            "statut": statut
+        }
+        joueurs.append(joueur)
+        print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
 
     # Sauvegarde tous les joueurs à la fin, une seule fois
-    with open(fichier_json, 'w') as f:
+    with open(fichier_json, "w") as f:
         json.dump(joueurs, f, indent=4)
-                                      
-def roles(fichier):
+
+def roles(fichier: str):
     roles_pers = charger_dossier(fichier)
-    mot = input("Rôles à chercher : ")
+    roles_available = ", ".join(roles_pers.keys())
+
+    print(f"Les rôles possibles sont : {roles_available}")
+    mot = input("Rôles à consulter : ").capitalize() # Le capitalize permet de ne mettre en majuscule que la première lettre de la chaîne (cela permet d'ignorer la casse)
     if mot in roles_pers:
         print(f"{mot} : {roles_pers[mot]}")
     else:
-        print("Ce rôle n\'existe pas")
+        print("Ce rôle n'existe pas")
 
-def rec_reg(fichier):
+def rec_reg(fichier: str):
     regles = charger_dossier(fichier)
-    mot = input("mot à chercher : ")
+    parts = ", ".join(list(regles.keys()))
+
+    print(f"Les parties possibles sont : {parts}")
+    mot = input("Consulter les règles pour la partie : ") # Le capitalize permet de ne mettre en majuscule que la première lettre de la chaîne (cela permet d'ignorer la casse)
     if mot in regles:
         print(f"{mot} : {regles[mot]}")
     else:
-        print("Il n\'existe pas de règles comportant ce mot")
+        print("Il n'existe pas de règles comportant ce mot")
