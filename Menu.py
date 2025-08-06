@@ -93,11 +93,8 @@ def roles(fichier: str):
 
 def rec_reg(fichier: str):
     regles = charger_dossier(fichier)
-    parts = ", ".join(list(regles.keys()))
-
-    print(f"Les parties possibles sont : {parts}")
-    mot = input("Consulter les règles pour la partie : ").capitalize() # Le capitalize permet de ne mettre en majuscule que la première lettre de la chaîne (cela permet d'ignorer la casse)
+    mot = input("mot à chercher : ")
     if mot in regles:
         print(f"{mot} : {regles[mot]}")
     else:
-        print("Il n'existe pas de règles comportant ce mot")
+        print("Il n\'existe pas de règles comportant ce mot")

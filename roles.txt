@@ -10,3 +10,4 @@ Sorciere, Elle connaît la victime des loups. Elle a 2 potions : Une pour sauver
 Chasseur, S'il meurt (nuit ou jour), il peut tirer une dernière balle et éliminer le joueur de son choix.
 Maire, Elu par vote au début du jour. Sa voix compte double pendant les votes. Si le maire meurt, il désigne un remplaçant avant de partir.
 Villageois, Aucun pouvoir. Il participe aux discussions et aux votes pour éliminer les Loups-Garous.
+Villageois, Aucun pouvoir. Il participe aux discussions et aux votes pour éliminer les Loups-Garous.
