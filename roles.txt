@@ -1,11 +1,12 @@
+Explication des rôles
 
-Cupidon, Il designe 2 amoureux au debut de la partie. Si l un des deux meurt, l autre meurt aussi. S ils sont dans des camps opposes, ils doivent eliminer tout le monde sauf eux.
-Les Amoureux, Role special donne par Cupidon. Ils se reveillent pour se reconnaitre. Leur but : survivre ensemble.
-Voleur, Il peut échanger sa carte avec lune des deux cartes non distribuees. Il adopte le nouveau rôle tire.
-Voyante, Chaque nuit, elle regarde secretement la carte d un joueur. Son but : reperer les Loups-Garous.
-Loups-Garous, Chaque nuit, ils se reveillent et choisissent une victime. But : tuer tous les villageois sans se faire reperer.
-Petite Fille, Elle peut entrouvrir les yeux pendant que les loups agissent. Elle tente de les espionner, mais si elle se fait reperer, elle est en danger.
-Sorciere, Elle connait la victime des loups. Elle a 2 potions : Une pour sauver la victime. Une pour tuer quelqu un d autre. Chaque potion ne peut etre utilisee qu une fois.
-Chasseur, S il meurt (nuit ou jour), il peut tirer une derniere balle et eliminer un joueur de son choix.
-Maire, Elu par vote au début du jour. Sa voix compte double pendant les votes. Si le maire meurt, il designe un remplaçant avant de partir.
-Villageois, Aucun pouvoir. Il participe aux discussions et aux votes pour eliminer les Loups-Garous.
+Cupidon, Il désigne 2 amoureux au début de la partie. Si l'un des deux meurt, l'autre meurt aussi. S'ils sont dans des camps opposés, ils doivent éliminer tout le monde sauf eux.
+Les Amoureux, Rôle spécial donné par Cupidon. Ils se réveillent pour se reconnaitre. Leur but : survivre ensemble.
+Voleur, Il peut échanger sa carte avec l'une des deux cartes non distribuées. Il adopte le nouveau rôle tiré.
+Voyante, Chaque nuit, elle regarde secretement la carte d'un joueur. Son but : repérer les Loups-Garous.
+Loups-Garous, Chaque nuit, ils se reveillent et choisissent une victime. But : tuer tous les villageois sans se faire repérer.
+Petite Fille, Elle peut entrouvrir les yeux pendant que les loups agissent. Elle tente de les espionner, mais si elle se fait repérer, elle est en danger.
+Sorciere, Elle connaît la victime des loups. Elle a 2 potions : Une pour sauver la victime. Une pour tuer quelqu'un d'autre. Chaque potion ne peut être utilisée qu'une fois.
+Chasseur, S'il meurt (nuit ou jour), il peut tirer une dernière balle et éliminer le joueur de son choix.
+Maire, Elu par vote au début du jour. Sa voix compte double pendant les votes. Si le maire meurt, il désigne un remplaçant avant de partir.
+Villageois, Aucun pouvoir. Il participe aux discussions et aux votes pour éliminer les Loups-Garous.
