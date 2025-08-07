@@ -14,6 +14,8 @@ def main():
             rec_reg("regles.txt")
         elif choix == "3":
             roles("roles.txt")
+        elif choix == "4":
+            pass
         else:
             print("Choix invalide, veuillez réessayer.")
 

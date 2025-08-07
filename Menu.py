@@ -30,6 +30,7 @@ def afficher_menu():
     print("1 - Inscrire joueur")
     print("2 - Règles du jeu")
     print("3 - Rôles")
+    print("4 - Lancer la partie")
     choix = input("Votre choix ? ")
     return choix
 
@@ -98,3 +99,6 @@ def rec_reg(fichier: str):
         print(f"{mot} : {regles[mot]}")
     else:
         print("Il n\'existe pas de règles comportant ce mot")
+
+def demarrer():
+    pass
