@@ -1,6 +1,7 @@
 import os
 import random
 import json
+import time
 
 roles_possibles = [
     #de 6 à 8 joueurs
@@ -84,8 +85,12 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
         }
         joueurs.append(joueur)
 
+        # Demande d'appuyer sur Entrée avant de révéler le rôle pour être un peu plus secret hihi ^^"
+        input(f"{nom}, appuie sur Entrée pour découvrir ton rôle en toute discrétion...")
         # Affiche le rôle à chaque inscription
         print(f"{nom} a été inscrit avec son rôle {role}.")
+        time.sleep(2)
+        os.system('cls' if os.name == 'nt' else 'clear')
 
     # Sauvegarde tous les joueurs à la fin, une seule fois
     with open(fichier_json, "w") as f:
