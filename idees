@@ -1,0 +1,4 @@
+Idees
+
+Faire en sorte que le Joueur.json se clear à chaque appel de la fonction main()
+optimiser la fonction demarrer() afin que le 1er tout soit différent de tous et que les autres tours soient tous identiques
