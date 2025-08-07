@@ -56,8 +56,10 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
 
     if 9 <= nb_joueurs <= 11:
             role_array = 1
+    
     elif 12 <= nb_joueurs <= 15:
             role_array = 2
+    
     elif not 6 <= nb_joueurs <= 8:
         print("Il y a trop ou pas assez de joueur. Nombre de joueur " + \
             "minimum : 6 ; nombre de joueur maximum : 15")
@@ -65,8 +67,14 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
 
     for i in range(nb_joueurs):
         nom = input(f"Nom du joueur {i+1} : ")
-        role = random.choice(roles_possibles[0])
-        roles_possibles[role_array].remove(role)
+        role = random.choice(roles_possibles[role_array])
+        
+        if role in roles_possibles[role_array]:
+            roles_possibles[role_array].remove(role)
+        
+        else:
+            print(f"Erreur : le rôle {role} n'est pas dans la liste.")
+        
         statut = "Vivant"
 
         joueur = {
@@ -75,7 +83,9 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
             "statut": statut
         }
         joueurs.append(joueur)
-        print(f"{nom} a été inscrit avec son rôle {role}.")  # Affiche le rôle à chaque inscription
+
+        # Affiche le rôle à chaque inscription
+        print(f"{nom} a été inscrit avec son rôle {role}.")
 
     # Sauvegarde tous les joueurs à la fin, une seule fois
     with open(fichier_json, "w") as f:
@@ -86,19 +96,47 @@ def roles(fichier: str):
     roles_available = ", ".join(roles_pers.keys())
 
     print(f"Les rôles possibles sont : {roles_available}")
-    mot = input("Rôles à consulter : ").capitalize() # Le capitalize permet de ne mettre en majuscule que la première lettre de la chaîne (cela permet d'ignorer la casse)
+    # Le capitalize permet de ne mettre en majuscule que 
+    # la première lettre de la chaîne (cela permet d'ignorer la casse)
+    mot = input("Rôles à consulter : ").capitalize()
+    
     if mot in roles_pers:
         print(f"{mot} : {roles_pers[mot]}")
+    
     else:
         print("Ce rôle n'existe pas")
 
 def rec_reg(fichier: str):
     regles = charger_dossier(fichier)
     mot = input("mot à chercher : ")
+    
     if mot in regles:
         print(f"{mot} : {regles[mot]}")
+    
     else:
         print("Il n\'existe pas de règles comportant ce mot")
 
 def demarrer():
-    pass
+    nb_tours = 1
+    
+    if nb_tours == 1:
+        
+        print("C'est la nuit, tout le village s'endort, " \
+        "les joueurs ferment les yeux." \
+        "Le voleur se réveille !")
+        
+        reponse = input("Avec qui veux tu échanger ta carte : ")
+        
+        print("Le voleur regarde la carte qu'il a volé et se rendort, ensuite," \
+        "la personne qui s'est fait volé sa carte se réveille et regarde son rôle.")
+        
+        print("Cupidon se réveille !")
+        
+        amoureux1 = input("Désigne le premier amoureux :")
+        amoureux2 = input("désigne le second amoureux : ")
+
+        print("Les 2 amoureux se réveillent, se regardent et tombe amoureux" \
+        "l'un pour l'autre, puis ils se rendorment")
+
+        print("La voyante se réveille, et désigne un joueur dont \
+              elle veut sonder la véritable personnalité !")
