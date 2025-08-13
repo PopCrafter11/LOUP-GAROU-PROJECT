@@ -1,12 +1,3 @@
-TODO : 
-[ x ] - Faire en sorte que le Joueur.json se clear à chaque appel de la fonction main()
-[ ? ] - optimiser la fonction demarrer() afin que le 1er tours (?) soit différent de tous et que les autres tours soient tous identiques
-
-
-// RM - @Ivy-js
-Ce que je conseillerai, ca serait de faire un dictionnaire avec toutes les actions des rôles possible, comme ça tu viendrais piocher aléatoirement dans le JSON pour récuperer un rôle + une action qui peut lui être associé. 
-Exemple : 
-
 {
     "witch": {
         "revive_a_dead_player": "{player} est mort(e) cette nuit. Vous pouvez décider de la sauver, ou de ne rien faire."
