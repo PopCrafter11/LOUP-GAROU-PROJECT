@@ -1,4 +1,5 @@
 from Menu import afficher_menu, rec_reg, roles, inscription, roles_possibles
+from Game import demarrer
 import os
 
 def main():
@@ -29,11 +30,10 @@ def main():
             roles("roles.txt")
         
         elif choix == "4":
-            pass
+            demarrer()
         
         else:
             print("Choix invalide, veuillez réessayer.")
 
 if __name__ == "__main__":
     main()
-    
