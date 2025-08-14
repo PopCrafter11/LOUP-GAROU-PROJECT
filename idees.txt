@@ -2,7 +2,7 @@ TODO :
 [ x ] - Faire en sorte que le Joueur.json se clear à chaque appel de la fonction main()
 [ ? ] - optimiser la fonction demarrer() afin que le 1er tour (?) soit différent de tous et que les autres tours soient tous identiques
         → faire 2 fonctions : demarrer(), puis tours() qui s'active une fois que demarrer() se termine (soit, à la fin du tour 1)
-
+[ ? ] - Faire une fonction election() et sorciere() pour leur rôles respectifs
 
 // RM - @Ivy-js
 Ce que je conseillerai, ca serait de faire un dictionnaire avec toutes les actions des rôles possible, 
