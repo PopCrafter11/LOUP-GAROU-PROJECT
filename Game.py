@@ -11,16 +11,19 @@ def election():
 
 def demarrer(fichier_json):
         
-        if "voleur" in fichier_json:
 
-                print("C'est la nuit, tout le village s'endort, " \
-                "les joueurs ferment les yeux." \
-                "Le voleur se réveille !")
+        for i in range(len(fichier_json)):
+
+                if fichier_json[i][2] == "voleur" in fichier_json:
+
+                        print("C'est la nuit, tout le village s'endort, " \
+                        "les joueurs ferment les yeux." \
+                        "Le voleur se réveille !")
         
-        reponse = input("Avec qui veux tu échanger ta carte : ")
+                        reponse = input("Avec qui veux tu échanger ta carte : ")
         
-        print("Le voleur regarde la carte qu'il a volé et se rendort, ensuite," \
-        "la personne qui s'est fait volé sa carte se réveille et regarde son rôle.")
+                        print("Le voleur regarde la carte qu'il a volé et se rendort, ensuite," \
+                        "la personne qui s'est fait volé sa carte se réveille et regarde son rôle.")
 
         #fonction qui va échanger le rôle du voleur, avec le volé
         
