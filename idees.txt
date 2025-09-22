@@ -19,3 +19,7 @@ Exemple :
         "announce_relationship" : "Cupidon à décider d'unir {player_1} et {player_2} par la force de l'amour. Si l'un deux meurt, la dépression emportera le partenaire également."
     }
 }
+
+
+2 fichiers json : 1 avec tous les joueurs, 1 autre avec les joueurs qui peuvent jouer
+round compteur -> +1 à chaque tour -> si >= 1, enlever rôles
