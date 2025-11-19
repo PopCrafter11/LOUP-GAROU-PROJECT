@@ -23,3 +23,6 @@ Exemple :
 
 2 fichiers json : 1 avec tous les joueurs, 1 autre avec les joueurs qui peuvent jouer
 round compteur -> +1 à chaque tour -> si >= 1, enlever rôles
+
+print nb rôles + nom rôles avant la partie, save lp + villageois 
+-> fin parti si lp > villageois

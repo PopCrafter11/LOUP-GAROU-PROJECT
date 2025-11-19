@@ -46,6 +46,8 @@ def charger_dossier(fichier: str) -> dict[str, str]:
     return dossier
 
 def inscription(fichier_json: str, roles_possibles: list[list[str]]):
+    nbv, nblp = 0, 0
+    nb = 2
     nb_joueurs = int(input("Nombre de joueurs (entre 6 et 15) : "))
     try:
         with open(fichier_json, 'r') as f:
@@ -76,6 +78,13 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
         else:
             print(f"Erreur : le rôle {role} n'est pas dans la liste.")
         
+        if role == "Villageois":
+            nbv += 1
+        elif role == "Loup-Garou":
+            nblp += 1
+        else:
+            nb += 1
+
         statut = "Vivant"
 
         joueur = {
@@ -92,6 +101,7 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
 
+    print("Il y a {nb} rôles différents dont {nbv} villageois et {nblp} Loup-Garou(s).")
     # Sauvegarde tous les joueurs à la fin, une seule fois
     with open(fichier_json, "w") as f:
         json.dump(joueurs, f, indent=4)

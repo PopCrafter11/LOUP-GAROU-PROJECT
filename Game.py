@@ -5,13 +5,26 @@ import time
 
 def sorciere():
         pass
-
+#faire les potions, et les supprimer si déjà utilisées
 def election():
         pass
+def voleur():
+        pass
+#interchanger les rôles entre le voleur et un joueur, joue qu'une fois, et discours même si abs
+# if voleur in or not in (fichier_json[i][2]) :
+#       print("nanannannanaifjkehdcimsudtesud")
+def tour1(fichier_json):
+        pass
+#cupidon, voleur, maire, normal
 
-def demarrer(fichier_json):
+
+def demarrer(fichier_json, a: int):
         
-
+        a += 1
+        
+        if a == 1:
+                tour1()
+        
         for i in range(len(fichier_json)):
 
                 if fichier_json[i][2] == "voleur" in fichier_json:
@@ -21,7 +34,7 @@ def demarrer(fichier_json):
                         "Le voleur se réveille !")
         
                         reponse = input("Avec qui veux tu échanger ta carte : ")
-        
+
                         print("Le voleur regarde la carte qu'il a volé et se rendort, ensuite," \
                         "la personne qui s'est fait volé sa carte se réveille et regarde son rôle.")
 
