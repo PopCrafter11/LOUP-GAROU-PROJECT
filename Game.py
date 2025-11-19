@@ -55,8 +55,8 @@ def demarrer(fichier_json, a: int):
         
         
 
-        print("La voyante se réveille, et désigne un joueur dont \
-              elle veut sonder la véritable personnalité !")
+                print("La voyante se réveille, et désigne un joueur dont \
+                elle veut sonder la véritable personnalité !")
         
         reponse2 = input("De quel joueur souhaites-tu connaître la véritable identité ? : ")
 
