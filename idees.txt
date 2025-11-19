@@ -26,3 +26,11 @@ round compteur -> +1 à chaque tour -> si >= 1, enlever rôles
 
 print nb rôles + nom rôles avant la partie, save lp + villageois 
 -> fin parti si lp > villageois
+
+pense bête pour commit :
+git add . (ajouter toutes les modifications)
+git commit -m "titre du commit"
+git push https://github.com/PopCrafter11/LOUP-GAROU-PROJECT.git
+si push ne fonctionne pas : 
+git pull https://github.com/PopCrafter11/LOUP-GAROU-PROJECT.git
+git push https://github.com/PopCrafter11/LOUP-GAROU-PROJECT.git
