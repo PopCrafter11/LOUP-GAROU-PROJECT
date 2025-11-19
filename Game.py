@@ -13,18 +13,8 @@ def voleur():
 #interchanger les rôles entre le voleur et un joueur, joue qu'une fois, et discours même si abs
 # if voleur in or not in (fichier_json[i][2]) :
 #       print("nanannannanaifjkehdcimsudtesud")
-def tour1(fichier_json):
-        pass
-#cupidon, voleur, maire, normal
 
-
-def demarrer(fichier_json, a: int):
-        
-        a += 1
-        
-        if a == 1:
-                tour1()
-        
+def tour1(fichier_json, a: int):
         for i in range(len(fichier_json)):
 
                 if fichier_json[i][2] == "voleur" in fichier_json:
@@ -37,18 +27,33 @@ def demarrer(fichier_json, a: int):
 
                         print("Le voleur regarde la carte qu'il a volé et se rendort, ensuite," \
                         "la personne qui s'est fait volé sa carte se réveille et regarde son rôle.")
-
-        #fonction qui va échanger le rôle du voleur, avec le volé
+                        #fonction qui va échanger le rôle du voleur, avec le volé
+                
+                elif fichier_json[i][2] == "cupidon" in fichier_json:
+                       
+                        print("Cupidon se réveille !")
         
-        print("Cupidon se réveille !")
+                        amoureux1 = input("Désigne le premier amoureux :")
+                        amoureux2 = input("désigne le second amoureux : ")
+
+                        #fonction qui va lier 2 personnes ensemble
+
+                        print("Cupidon se rendort. Les 2 amoureux se réveillent, se regardent et tombe amoureux" \
+                        "l'un pour l'autre, puis ils se rendorment")
+                        
+#cupidon, voleur, maire, normal
+
+
+def demarrer(fichier_json, a: int):
         
-        amoureux1 = input("Désigne le premier amoureux :")
-        amoureux2 = input("désigne le second amoureux : ")
-
-        #fonction qui va lier 2 personnes ensemble
-
-        print("Cupidon se rendort. Les 2 amoureux se réveillent, se regardent et tombe amoureux" \
-        "l'un pour l'autre, puis ils se rendorment")
+        a += 1
+        
+        if a == 1:
+                tour1(fichier_json, a)
+        
+        for i in range(len(fichier_json)):
+        
+        
 
         print("La voyante se réveille, et désigne un joueur dont \
               elle veut sonder la véritable personnalité !")

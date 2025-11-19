@@ -30,7 +30,7 @@ def main():
             roles("roles.txt")
         
         elif choix == "4":
-            demarrer(fichier_json)
+            demarrer(fichier_json, 0)
         
         else:
             print("Choix invalide, veuillez réessayer.")

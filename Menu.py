@@ -101,10 +101,14 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
         time.sleep(2)
         os.system('cls' if os.name == 'nt' else 'clear')
 
-    print("Il y a {nb} rôles différents dont {nbv} villageois et {nblp} Loup-Garou(s).")
+    print(f"Il y a {nb} rôles différents dont {nbv} villageois et {nblp} Loup-Garou(s).")
+    time.sleep(3)
+    os.system('cls' if os.name == 'nt' else 'clear')
     # Sauvegarde tous les joueurs à la fin, une seule fois
     with open(fichier_json, "w") as f:
         json.dump(joueurs, f, indent=4)
+
+    return nbv, nblp
 
 def roles(fichier: str):
     roles_pers = charger_dossier(fichier)
@@ -123,7 +127,7 @@ def roles(fichier: str):
 
 def rec_reg(fichier: str):
     regles = charger_dossier(fichier)
-    mot = input("mot à chercher : ")
+    mot = input("mot à chercher : ").capitalize
     
     if mot in regles:
         print(f"{mot} : {regles[mot]}")

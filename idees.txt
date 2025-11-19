@@ -27,6 +27,9 @@ round compteur -> +1 à chaque tour -> si >= 1, enlever rôles
 print nb rôles + nom rôles avant la partie, save lp + villageois 
 -> fin parti si lp > villageois
 
+pour les règles du jeu, faire en sorte que la fonction rec_reg(fichier) renvoie/print
+le fichier entier
+
 pense bête pour commit :
 git add . (ajouter toutes les modifications)
 git commit -m "titre du commit"
@@ -34,3 +37,15 @@ git push https://github.com/PopCrafter11/LOUP-GAROU-PROJECT.git
 si push ne fonctionne pas : 
 git pull https://github.com/PopCrafter11/LOUP-GAROU-PROJECT.git
 git push https://github.com/PopCrafter11/LOUP-GAROU-PROJECT.git
+
+
+
+ordre loup garou : 
+tour de préparation / tour 1:
+voleur / cupidon / amoureux / voyante / lp / sorcière / village
+ensuite, vote pour le maire, débat lp
+tour normal : 
+voyante / lp / sorcière / village
+
+joueurs.json : rôles doit être une liste -> rajouter les amoureux dans le rôles
+ou sinon, rajouter un 3eme attribut "Amoureux" avec True ou False dedans afin de les distinguer
