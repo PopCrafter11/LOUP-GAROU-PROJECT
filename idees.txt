@@ -49,3 +49,13 @@ voyante / lp / sorcière / village
 
 joueurs.json : rôles doit être une liste -> rajouter les amoureux dans le rôles
 ou sinon, rajouter un 3eme attribut "Amoureux" avec True ou False dedans afin de les distinguer
+
+
+
+WARNING ! Problème dans tour1() et Demarrer() : 
+la boucle va planter le programme si elle ne trouve pas le rôle / elle a déjà parcouru tout
+le dictionnaire. Elle pourrait se réparer toute seule si elle ne trouve pas le rôle demandé
+à la valeur de i choisie, mais risque de louper des rôles : 
+si i = 3, que "elif fichier_json[i][2] == "Voyante" in fichier_json" s'active
+et que "fichier_json[i][2] == "Loup-Garou"", la voyante ne pourra pas jouer, et elle va
+passer à la condition suivante.

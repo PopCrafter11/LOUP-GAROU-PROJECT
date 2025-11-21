@@ -14,6 +14,15 @@ def voleur():
 #interchanger les rôles entre le voleur et un joueur, joue qu'une fois, et discours même si abs
 # if voleur in or not in (fichier_json[i][2]) :
 #       print("nanannannanaifjkehdcimsudtesud")
+def maire():
+        print('Nous allons passer au vote du maire')
+        nombre = input('Combien de personnes veulent se présenter ?')
+        liste_maire = []
+        for i in range(nombre):
+                liste_maire.append(input('Écrivez le nom des candidats'))
+
+def debat():
+        pass
 
 def tour1(fichier_json, a: int):
         for i in range(len(fichier_json)):
@@ -41,7 +50,41 @@ def tour1(fichier_json, a: int):
 
                         print("Cupidon se rendort. Les 2 amoureux se réveillent, se regardent et tombe amoureux" \
                         "l'un pour l'autre, puis ils se rendorment")
+                
+                elif fichier_json[i][2] == 'Voyante' in fichier_json:
+
+                        print('La voyante se réveille !')
+
+                        BouleDeCristal = input("Choisi la personne dont tu veux voir sa véritable identité :")
+
+                        #fonction qui va dévoiler la carte d'un joueur à la voyante uniquement
+                        print('La voyante se rendort.')
+                
+                elif fichier_json[i][2] == 'Loup-Garou' in fichier_json:
                         
+                        print('Les loup garous se réveillent pour semer la terreur et la mort.')
+                        tuer =  input('Qui voulez-vous tuer ce soir :')
+                        #fonction qui va éliminer la personne, sûrement supprimer le joueur du dictionnaire
+                        #mais uniquement après le rôle de la sorcière/fin du tour
+
+                elif fichier_json[i][2] == 'Sorcière' in fichier_json:
+                        
+                        print('La sorcière se réveille ! Une personne a été tuée ce soir !')
+                        sort = input('Que veux tu faire ? La sauver, ne rien faire, ou tuer :')
+                        #fonction qui va faire intervenir le rôle de la sorcière
+                        print('La sorcière se rendort.')
+                
+                else:
+                        continue
+        #encore la fonction sorcière, tout dépend le choix qu'elle a fait : 
+        print('Le village se réveille!')
+        print(f'Une personne a été tuée ce soir, il s\'agit de {tuer} !')
+        print('Une personne a été tuée ce soir mais la sorcière la sauvée.')
+        print(f'Deux personnes ont été tuées ce soir, {tuer} par les loup-garous, et (fonction sorcière) par la sorcière.')
+
+        maire()
+        debat()
+        demarrer(fichier_json, a)
 #cupidon, voleur, maire, normal
 
 
