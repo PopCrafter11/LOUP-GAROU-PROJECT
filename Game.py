@@ -2,6 +2,7 @@ import os
 import random
 import json
 import time
+from Menu import nbv, nblp
 
 def sorciere():
         pass

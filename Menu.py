@@ -3,6 +3,8 @@ import random
 import json
 import time
 
+nbv = 0
+nblp = 0
 roles_possibles = [
     #de 6 à 8 joueurs
     [
@@ -46,7 +48,6 @@ def charger_dossier(fichier: str) -> dict[str, str]:
     return dossier
 
 def inscription(fichier_json: str, roles_possibles: list[list[str]]):
-    nbv, nblp = 0, 0
     nb = 2
     nb_joueurs = int(input("Nombre de joueurs (entre 6 et 15) : "))
     try:
@@ -79,8 +80,10 @@ def inscription(fichier_json: str, roles_possibles: list[list[str]]):
             print(f"Erreur : le rôle {role} n'est pas dans la liste.")
         
         if role == "Villageois":
+            global nbv
             nbv += 1
         elif role == "Loup-Garou":
+            global nblp
             nblp += 1
         else:
             nb += 1
